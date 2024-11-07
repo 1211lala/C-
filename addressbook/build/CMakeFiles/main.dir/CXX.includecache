@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liuao/C++/addressbook/src/rw_file.cpp
+datafile.h
+/home/liuao/C++/addressbook/src/datafile.h
+iostream
+-
+fstream
+-
+sstream
+-
+string
+-
+vector
+-
+
