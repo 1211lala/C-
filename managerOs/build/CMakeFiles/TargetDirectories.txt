@@ -1,0 +1,3 @@
+/home/liuao/C-/managerOs/build/CMakeFiles/rebuild_cache.dir
+/home/liuao/C-/managerOs/build/CMakeFiles/edit_cache.dir
+/home/liuao/C-/managerOs/build/CMakeFiles/main.dir
