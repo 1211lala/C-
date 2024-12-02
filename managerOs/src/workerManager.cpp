@@ -110,7 +110,10 @@ void workerManager::add_emp()
             }
             newNmpArray[this->empNum + i] = add_worker;
         }
-        delete[] this->empArray;      // 释放原有数据
+        if (this->empArray != NULL)
+        {
+            delete[] this->empArray; // 释放原有数据
+        }
         this->empArray = newNmpArray; // 指向新数据
         this->empNum = newSize;
         this->save_file();
@@ -332,5 +335,51 @@ bool workerManager::find_emp()
 
 bool workerManager::sort_emp()
 {
-    // for()
+    for (int i = 0; i < this->empNum; i++)
+    {
+        for (int j = 0; j < this->empNum - 1; j++)
+        {
+            if (this->empArray[j]->id > this->empArray[j + 1]->id)
+            {
+                baseWorker *worker = this->empArray[j];
+                this->empArray[j] = this->empArray[j + 1];
+                this->empArray[j + 1] = worker;
+            }
+        }
+    }
+    this->save_file();
+    cout << "排序完成" << endl;
+    this->show_info();
+    return true;
+}
+
+bool workerManager::clear_os_info()
+{
+    if (this->fileIsExist)
+    {
+        if (!this->fileIsEmpty)
+        {
+            for (int i = 0; i < this->empNum; i++)
+            {
+                delete this->empArray[i];
+            }
+            system("cp /home/liuao/C-/managerOs/datafile.txt /home/liuao/C-/managerOs/datafile-copy.txt");
+            ofstream ofs;
+            ofs.open(MANAGER_OS_FILE, ios::trunc);
+            ofs.close();
+            delete[] this->empArray;
+            this->empArray = NULL;
+            this->empNum = 0;
+            this->fileIsEmpty = true;
+            this->fileIsExist = true;
+        }
+    }
+    else
+    {
+        cout << "文件不存在" << endl;
+        return false;
+    }
+
+    cout << "文件已经清空" << endl;
+    return true;
 }

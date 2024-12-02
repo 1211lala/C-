@@ -32,8 +32,10 @@ int main(void)
             wm.find_emp();
             break;
         case 6:
+            wm.sort_emp();
             break;
         case 7:
+            wm.clear_os_info();
             break;
         default:
             system("clear");
@@ -42,4 +44,3 @@ int main(void)
     }
     return 0;
 }
-

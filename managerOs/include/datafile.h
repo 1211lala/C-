@@ -33,6 +33,7 @@ public:
     bool change_emp();
     bool find_emp();
     bool sort_emp();
+    bool clear_os_info();
     ~workerManager();
     workerManager();
 };
